@@ -101,7 +101,7 @@ var service = {
         else if(lastAllTiles !== allTiles+''){
             service.tiles = []
             allTiles.forEach(tile => {
-                service.tiles = service.tiles.concat(service.cache[stringify(tile)])
+                if(service.cache[stringify(tile)]) service.tiles = service.tiles.concat(service.cache[stringify(tile)])
             })
             dispatch.call('loadedTiles')
         }
