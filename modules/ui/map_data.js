@@ -194,6 +194,53 @@ export function uiMapData(context) {
             .property('checked', showsOsm);
     }
 
+    function drawMissingTilesItem(selection) {
+        var missingTiles = layers.layer('missing-tiles'),
+            showsMissing = missingTiles.enabled();
+
+        var ul = selection
+            .selectAll('.layer-list-missing-tiles')
+            .data(missingTiles ? [0] : []);
+
+        // Exit
+        ul.exit()
+            .remove();
+
+        // Enter
+        var ulEnter = ul.enter()
+            .append('ul')
+            .attr('class', 'layer-list layer-list-missing-tiles');
+
+        var liEnter = ulEnter
+            .append('li')
+            .attr('class', 'list-item-missing-tiles');
+
+        var labelEnter = liEnter
+            .append('label')
+            .call(tooltip()
+                .title('Areas identified as lacking in building data.')
+                .placement('top')
+            );
+
+        labelEnter
+            .append('input')
+            .attr('type', 'checkbox')
+            .on('change', function() { toggleLayer('missing-tiles'); });
+
+        labelEnter
+            .append('span')
+            .text('Missing Building Tiles');
+
+        // Update
+        ul = ul
+            .merge(ulEnter);
+
+        ul.selectAll('.list-item-missing-tiles')
+            .classed('active', showsMissing)
+            .selectAll('input')
+            .property('checked', showsMissing);
+    }
+
 
     function drawGpxItem(selection) {
         var gpx = layers.layer('gpx'),
@@ -368,6 +415,7 @@ export function uiMapData(context) {
     function update() {
         _dataLayerContainer
             .call(drawOsmItem)
+            .call(drawMissingTilesItem)
             .call(drawPhotoItems)
             .call(drawGpxItem);
 

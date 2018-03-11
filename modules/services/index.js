@@ -1,4 +1,5 @@
 import serviceMapillary from './mapillary';
+import serviceBuildingIdentification from './building_identification';
 import serviceNominatim from './nominatim';
 import serviceOpenstreetcam from './openstreetcam';
 import serviceOsm from './osm';
@@ -13,7 +14,8 @@ export var services = {
     osm: serviceOsm,
     taginfo: serviceTaginfo,
     wikidata: serviceWikidata,
-    wikipedia: serviceWikipedia
+    wikipedia: serviceWikipedia,
+    buildingIdentification : serviceBuildingIdentification
 };
 
 export {
@@ -23,5 +25,6 @@ export {
     serviceOsm,
     serviceTaginfo,
     serviceWikidata,
-    serviceWikipedia
+    serviceWikipedia,
+    serviceBuildingIdentification
 };

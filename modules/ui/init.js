@@ -41,6 +41,8 @@ import { uiUndoRedo } from './undo_redo';
 import { uiVersion } from './version';
 import { uiZoom } from './zoom';
 import { uiCmd } from './cmd';
+import { uiTileInspector } from './tile_inspector'
+
 
 
 export function uiInit(context) {
@@ -70,6 +72,11 @@ export function uiInit(context) {
             .attr('id', 'sidebar')
             .attr('class', 'col4')
             .call(ui.sidebar);
+
+        container
+            .append('div')
+            .attr('id', 'predictionInspector')
+            .call(ui.tileInspector);
 
         var content = container
             .append('div')
@@ -368,6 +375,7 @@ export function uiInit(context) {
 
 
     ui.sidebar = uiSidebar(context);
+    ui.tileInspector = uiTileInspector(context);
 
     return ui;
 }

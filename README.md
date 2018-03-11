@@ -1,7 +1,11 @@
 # iD - friendly JavaScript editor for [OpenStreetMap](https://www.openstreetmap.org/)
 
-[![Build Status](https://travis-ci.org/openstreetmap/iD.svg?branch=master)](https://travis-ci.org/openstreetmap/iD)
-[![Greenkeeper badge](https://badges.greenkeeper.io/openstreetmap/iD.svg)](https://greenkeeper.io/)
+## CU Capstone Modifications
+~~~
+ - modules
+  |- svg
+    |- missing_tiles.js //svg rendering layer of missing tiles   
+~~~
 
 ## Basics
 

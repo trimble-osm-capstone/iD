@@ -1,0 +1,166 @@
+.mtile{
+    stroke: white;
+    fill: none;
+}
+
+.mtile-border{
+    outline-color: rgba(255,255,255,0.2);
+    outline-style: solid;
+    outline-width: 10px;
+    outline-offset: -10px;
+    fill:none;
+}
+
+@keyframes blink {
+  from {
+    outline-color: rgba(255,255,255,0.3);
+  }
+
+  to {
+    outline-color: rgba(255,255,255,1);
+  }
+}
+
+.mtile-border.isSelected{
+    animation-duration: 1s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#sidebar{
+    height: 100%;
+    transition: 0.5s height;
+}
+
+#sidebar.lessHeight{
+    height: 70%;
+}
+
+#predictionInspector{
+    position: absolute;
+    left: 0;
+    bottom:-30%;
+    height: 30%;
+    width:33.3333%; 
+    max-width: 400px;
+    background: white;
+  border-top: 1px solid #cccccc;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s all;
+}
+
+#predictionInspector.hasheight{
+     bottom:0;
+}
+
+.buildings{
+    stroke:white;
+    fill:#ffffff42;
+    pointer-events: none;
+}
+
+.buildings.selected{
+    stroke-width: 5px;
+  fill: transparent;
+}
+
+.inspector{
+    width: 100%;
+    flex:1;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+}
+
+.inspector-horiz{
+    flex:1;
+    display:flex;
+}
+
+.inspector-panel{
+    flex:1;
+}
+
+.inspector-panel.image{
+    flex:0.7;
+}
+
+.inspector-panel.action{
+    background: #f6f6f6;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.statusImg{
+    height:100%;
+    border-radius: 3px;
+}
+
+.tile-footer{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.tbutton{
+    padding: 5px 10px;
+    background: #e0e0e0;
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.tbutton:not(:last-child){
+    margin-right: 10px;
+}
+
+.tbutton.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.tbutton:hover{
+    background: #c3c3c3;
+}
+
+.keyVal{
+    display: flex;
+    font-size: 14px;
+    flex:1;
+}
+.keyVal:not(:last-child){
+    border-bottom: 1px solid #dddddd;
+}
+
+.key,.val{
+    padding: 0px 7px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.key{
+    flex:none;
+    background:white;
+    border-right: 1px solid #dedede;
+    width: 40%;
+}
+.val{
+    flex:1;
+}
