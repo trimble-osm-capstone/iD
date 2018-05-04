@@ -1,7 +1,7 @@
 # iD - friendly JavaScript editor for [OpenStreetMap](https://www.openstreetmap.org/)
 
 ## Modifications for Building Identification from Satelite Imagery
-[this documentation](https://github.com/openstreetmap/iD/blob/master/ARCHITECTURE.md) was helpful in understanding the architecture of iD, it is somewhat unconventional. Installation and usage instructions in the main body of this document still apply. Below is a file structure showing the changes that were made to iD for this project:
+[this documentation](https://github.com/openstreetmap/iD/blob/master/ARCHITECTURE.md) was helpful in understanding the architecture of iD, it is somewhat unconventional. [Installation and usage instructions](#installation) in the main body of this document still apply. Below is a file structure showing the changes that were made to iD for this project:
 
  - `modules/`
    - `services/`
