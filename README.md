@@ -1,11 +1,21 @@
 # iD - friendly JavaScript editor for [OpenStreetMap](https://www.openstreetmap.org/)
 
-## CU Capstone Modifications
-~~~
- - modules
-  |- svg
-    |- missing_tiles.js //svg rendering layer of missing tiles   
-~~~
+## Modifications for Building Identification from Satelite Imagery
+[this documentation](https://github.com/openstreetmap/iD/blob/master/ARCHITECTURE.md) was helpful in understanding the architecture of iD, it is somewhat unconventional. Installation and usage instructions in the main body of this document still apply. Below is a file structure showing the changes that were made to iD for this project:
+
+ - `modules/`
+   - `services/`
+     - `building_identification.js`: wrapper for interacting with the building-identification api as well as managing the state of building-identification specific tasks, such as selecting a tile, predicting contours, etc.
+     - `index.js`: made *building_identification.js* available for import from the main file.
+   - `svg/`
+     - `missing_tiles.js`: svg rendering layer, drawing all missing tiles of various sizes, uses the state from *services/building_identification*. Loads missing tiles depending on viewport location.
+     - `layers.js`: added *missing_tiles.js* to the list of usable layers.
+   - `ui/`
+     - `tile_inspector.js`: ui panel for viewing the state of a selected tile, and starting a contour prediction request.
+     - `init.js`: added the tile inspector to the main ui
+     - `map_data.js`: added the "missing buildings" layer as a toggleable layer
+ - `css/`
+   - `90_missing_buildings.css`: styles for the tile inspector ui 
 
 ## Basics
 
